@@ -1,0 +1,7 @@
+:root {
+  --paper-50: #F9F7F4; --paper-100: #F4F1EC; --paper-200: #EAE6DE; --taupe-300: #D1C4B0; --taupe-500: #AB9280; --brown-900: #4E342A;
+  --champagne-50: #FFFDEF; --champagne-100: #FEF8D6; --champagne-200: #FEF3AE; --champagne-300: #F8E687; --gold-400: #EFD36A; --gold-600: #E0C153;
+  --sage-50: #E9EBE3; --sage-100: #D9E0CB; --sage-200: #BECBA7; --olive-400: #9AA881; --olive-600: #8CA06B; --olive-800: #77865C;
+  --font-display: "The Seasons", "Cormorant Garamond", serif; --font-decorative: "Cinzel Decorative", "Cinzel", serif; --font-serif: "Cinzel", "Cormorant Garamond", serif; --font-body: "Cinzel", Georgia, serif;
+  --content-max: 76rem; --reading-max: 42rem; --gutter: clamp(1.25rem, 5vw, 5rem); --section-y: clamp(4.5rem, 11vw, 9rem); --radius-sm: .75rem; --radius-md: 1.25rem; --radius-lg: 2rem;
+}
