@@ -25,7 +25,6 @@ export function WeddingTabs({ activeTab, onChange }: WeddingTabsProps) {
           </button>
         ))}
       </div>
-      <button className="wedding-tabs__rsvp" onClick={() => onChange("rsvp")} type="button">RSVP</button>
     </nav>
   );
 }

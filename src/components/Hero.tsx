@@ -35,10 +35,11 @@ export function Hero({ onRsvpClick }: HeroProps) {
       <div className="hero__floral" aria-hidden="true">✦</div>
       <ImagePlaceholder className="hero__placeholder" label="Foto de la pareja pendiente" />
       <div className="hero__content">
-        <p className="monogram">{weddingContent.couple.monogram}</p>
-        <p className="eyebrow">{weddingContent.hero.eyebrow}</p>
+        <p className="hero__monogram">{weddingContent.couple.monogram}</p>
         <h1 id="hero-title">{weddingContent.hero.title}</h1>
+        <p className="hero__families">{weddingContent.hero.familyNames}</p>
         <p className="hero__location">{weddingContent.event.locationLabel}</p>
+        <p className="hero__date">{weddingContent.event.displayDate}</p>
         <p className="hero__message">{weddingContent.hero.subtitle}</p>
         <p className="countdown" aria-live="polite">{countdown}</p>
         {onRsvpClick ? <Button onClick={onRsvpClick}>{weddingContent.hero.primaryCtaLabel}</Button> : <Button href={weddingContent.hero.primaryCtaHref}>{weddingContent.hero.primaryCtaLabel}</Button>}

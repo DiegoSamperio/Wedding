@@ -1,11 +1,13 @@
 import { weddingContent } from "@/data/wedding";
 
 const navigation = [
-  ["Nuestra historia", "#historia"],
+  ["Home", "#inicio"],
+  ["Nosotros", "#historia"],
   ["Ese día", "#itinerario"],
-  ["Ceremonia", "#ceremonia"],
+  ["RSVP", "#rsvp"],
   ["Ubicación", "#ubicacion"],
   ["Regalos", "#regalos"],
+  ["Cierre", "#cierre"],
 ] as const;
 
 export function SiteNavigation() {
@@ -17,7 +19,6 @@ export function SiteNavigation() {
       <div className="site-nav__links">
         {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
       </div>
-      <a className="site-nav__rsvp" href={weddingContent.hero.primaryCtaHref}>RSVP</a>
     </nav>
   );
 }

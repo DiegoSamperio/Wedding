@@ -23,5 +23,62 @@ a { color: inherit; } button, input, select, textarea { font: inherit; } button 
 .gift-card { display: flex; flex-direction: column; align-items: flex-start; padding: 1.5rem; }.gift-card h3 { margin-bottom: .5rem; }.gift-card p { color: var(--taupe-500); }.gift-number { color: var(--brown-900) !important; font-size: 1.1rem; }.text-button { margin: .5rem 0 1rem; padding: 0; border: 0; color: var(--olive-800); background: transparent; font-family: var(--font-serif); font-size: .75rem; letter-spacing: .08em; text-decoration: underline; text-underline-offset: .3em; text-transform: uppercase; }.gift-card dl { width: 100%; margin: .5rem 0; }.gift-card dl div { padding: .55rem 0; border-bottom: 1px solid rgba(171,146,128,.2); }.gift-card dt { color: var(--taupe-500); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }.gift-card dd { margin: .15rem 0 0; overflow-wrap: anywhere; }
 .closing { position: relative; overflow: hidden; background: var(--paper-100); }.closing__image { min-height: 15rem; border-radius: 0; border-inline: 0; }.closing__image .image-placeholder__fallback { min-height: 15rem; background: linear-gradient(130deg, rgba(119,134,92,.65), rgba(254,243,174,.3)), radial-gradient(circle at 70% 20%, rgba(255,253,239,.8), transparent 30%); }.closing__content { width: min(100%, var(--content-max)); margin: 0 auto; padding: 3rem var(--gutter) var(--section-y); text-align: center; }.closing h2 { max-width: 48rem; margin: 0 auto 3rem; font-size: clamp(2.3rem, 7vw, 4.5rem); }.album-card { display: grid; gap: 1.5rem; align-items: center; max-width: 48rem; margin-inline: auto; padding: 1.25rem; border: 1px solid rgba(171,146,128,.22); border-radius: var(--radius-md); text-align: left; background: rgba(255,253,239,.72); }.album-card__qr { width: 8rem; min-height: 8rem; }.album-card__qr .image-placeholder__fallback { min-height: 8rem; }.album-card h3 { margin-bottom: .6rem; }.album-card p { color: var(--taupe-500); }
 @media (min-width: 700px) { .wedding-tabs { padding-block: .75rem; }.wedding-tabs__list { justify-content: center; }.wedding-tabs__list button { padding-inline: .8rem; }.gallery-grid { grid-template-columns: repeat(3, 1fr); }.gallery-placeholder:nth-child(3n + 2) { transform: translateY(1.5rem); }.story-timeline__content { grid-template-columns: 12rem 1fr; align-items: center; }.ceremony-grid { grid-template-columns: repeat(3, 1fr); }.rsvp-layout, .location-grid { grid-template-columns: 1fr 1fr; align-items: start; }.hotel-grid, .gifts-grid { grid-template-columns: repeat(3, 1fr); }.album-card { grid-template-columns: 8rem 1fr; }.closing__image, .closing__image .image-placeholder__fallback { min-height: 22rem; } }
-@media (min-width: 1000px) { .schedule-layout { grid-template-columns: .85fr 1.2fr .75fr; align-items: center; }.schedule { margin: 0; }.section-title { margin-bottom: 3.5rem; }.gallery-placeholder { min-height: 21rem; } }
+.wedding-tabs { grid-template-columns: auto minmax(0, 1fr); }
+.wedding-tabs__list { padding-bottom: .1rem; }
+.wedding-tabs__list button { border: 1px solid transparent; }
+.wedding-tabs__list button.is-active { border-color: var(--olive-800); color: var(--champagne-50); background: var(--olive-800); }
+.hero { min-height: calc(100svh - 3.8rem); padding-block: clamp(4.5rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem); }
+.hero__content { width: min(100%, 42rem); }
+.hero__monogram { margin: 0 0 clamp(.8rem, 2vw, 1.1rem); color: var(--olive-800); font-family: var(--font-decorative); font-size: clamp(1.15rem, 3vw, 1.65rem); letter-spacing: .16em; }
+.hero h1 { max-width: 100%; margin-bottom: .55rem; overflow-wrap: normal; font-size: clamp(3.15rem, 9vw, 6.4rem); line-height: .96; text-wrap: balance; }
+.hero__families { margin: 0 auto 1.2rem; color: var(--brown-900); font-family: var(--font-serif); font-size: clamp(.8rem, 1.65vw, 1.05rem); letter-spacing: .13em; text-transform: uppercase; text-wrap: balance; }
+.hero__location, .hero__date { margin-bottom: .35rem; color: var(--olive-800); font-family: var(--font-serif); font-size: clamp(.72rem, 1.3vw, .9rem); letter-spacing: .1em; text-transform: uppercase; }
+.hero__message { max-width: 37rem; margin: clamp(1.35rem, 3vw, 2rem) auto; color: var(--taupe-500); font-size: clamp(.95rem, 1.5vw, 1.08rem); }
+.countdown { margin: 1.2rem 0; font-size: clamp(1.25rem, 3vw, 1.75rem); }
+.rsvp-layout { align-items: start; }
+.rsvp-copy .section-title { margin-bottom: 0; }
+.rsvp-copy .section-title h2 { font-size: clamp(2.4rem, 7vw, 4.4rem); }
+.form-card { display: grid; gap: 1rem; padding: clamp(1.1rem, 3vw, 2rem); box-shadow: 0 18px 50px rgba(78,52,42,.07); }
+.form-card .field, .song-form label { display: grid; gap: .45rem; margin: 0; color: var(--brown-900); font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; }
+.choice-fieldset { margin: .2rem 0 0; padding: 0; border: 0; }
+.choice-fieldset legend { margin-bottom: .7rem; color: var(--brown-900); font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; }
+.choice-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.form-card .choice-card { display: grid; grid-template-columns: 1.1rem 1fr; align-items: center; gap: .65rem; min-height: 4.2rem; margin: 0; padding: .85rem; border: 1px solid var(--taupe-300); border-radius: var(--radius-sm); background: rgba(255,255,255,.38); color: var(--brown-900); font-size: .92rem; letter-spacing: 0; text-transform: none; transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.choice-card input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.choice-card__indicator { width: 1rem; height: 1rem; border: 1px solid var(--taupe-500); border-radius: 50%; background: var(--champagne-50); box-shadow: inset 0 0 0 4px var(--champagne-50); }
+.form-card .choice-card.is-selected { border-color: var(--gold-600); background: rgba(254,248,214,.65); box-shadow: 0 0 0 1px rgba(224,193,83,.45); }
+.form-card .choice-card.is-selected .choice-card__indicator { border-color: var(--olive-800); background: var(--olive-800); }
+.form-card input, .form-card select, .form-card textarea, .song-form input { border-radius: var(--radius-sm); background: rgba(255,255,255,.58); }
+.form-card textarea { min-height: 8rem; }
+.form-card .button { width: 100%; }
+.form-status { display: grid; gap: .15rem; margin: 0; padding: .85rem 1rem; border: 1px solid rgba(119,134,92,.35); border-radius: var(--radius-sm); color: var(--olive-800); background: rgba(217,224,203,.55); font-size: .9rem; }
+.form-status span { color: var(--taupe-500); }
+.location-card--main { display: grid; align-content: center; min-height: 17rem; padding: clamp(1.35rem, 3vw, 2rem); }
+.location-card--main h3 { font-size: clamp(2rem, 5vw, 3.2rem); }
+.location-map { min-height: 17rem; }
+.location-map .image-placeholder__fallback { min-height: 17rem; background: linear-gradient(135deg, rgba(217,224,203,.74), rgba(255,253,239,.82)), repeating-linear-gradient(45deg, rgba(171,146,128,.16) 0 1px, transparent 1px 18px); }
+.accommodation-heading { max-width: 47rem; margin-top: clamp(3rem, 7vw, 5rem); }
+.accommodation-heading h3 { margin-bottom: .75rem; font-size: clamp(2.1rem, 5vw, 3.6rem); }
+.accommodation-heading p:last-child { color: var(--taupe-500); }
+.hotel-filters { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.7rem 0 1.5rem; }
+.hotel-filters button { min-height: 36px; padding: .45rem .75rem; border: 1px solid rgba(171,146,128,.45); border-radius: 999px; color: var(--brown-900); background: rgba(255,253,239,.66); font-family: var(--font-serif); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.hotel-filters button.is-active { border-color: var(--olive-800); color: var(--champagne-50); background: var(--olive-800); }
+.hotel-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; margin-top: 0; }
+.hotel-card { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
+.hotel-card .image-placeholder { min-height: 13rem; margin: 0; border: 0; border-bottom: 1px solid rgba(171,146,128,.22); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+.hotel-card__body { display: flex; flex: 1; flex-direction: column; padding: 1rem; }
+.hotel-card h3 { margin: 0 0 .8rem; font-size: clamp(1.45rem, 3vw, 1.9rem); }
+.hotel-card h3, .hotel-card p, .hotel-card .eyebrow, .hotel-card .pending { margin-inline: 0; }
+.hotel-meta { display: grid; gap: .5rem; margin: 0 0 .85rem; }
+.hotel-meta div { display: grid; gap: .1rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(171,146,128,.18); }
+.hotel-meta dt { color: var(--olive-800); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+.hotel-meta dd { margin: 0; color: var(--taupe-500); font-size: .92rem; line-height: 1.5; }
+.hotel-card__description { color: var(--brown-900) !important; }
+.hotel-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin: auto 0 1rem; }
+.hotel-tags span { padding: .25rem .5rem; border: 1px solid rgba(171,146,128,.3); border-radius: 999px; color: var(--olive-800); background: rgba(217,224,203,.38); font-size: .68rem; letter-spacing: .04em; }
+.hotel-card__actions .button { flex: 1 1 8rem; min-height: 40px; padding-inline: .75rem; font-size: .68rem; }
+.hotel-empty { padding: 1rem; border: 1px solid rgba(171,146,128,.25); border-radius: var(--radius-sm); color: var(--taupe-500); background: rgba(255,253,239,.68); }
+@media (max-width: 520px) { .wedding-tabs { align-items: start; gap: .45rem; padding-inline: .75rem; }.wedding-tabs__monogram { padding-top: .45rem; }.wedding-tabs__list button { min-height: 34px; padding-inline: .55rem; font-size: .62rem; }.hero h1 { font-size: clamp(2.85rem, 16vw, 4.2rem); }.hero__families { font-size: .72rem; letter-spacing: .08em; }.choice-row { grid-template-columns: 1fr; }.hotel-filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; scrollbar-width: none; }.hotel-filters::-webkit-scrollbar { display: none; }.hotel-filters button { flex: 0 0 auto; } }
+@media (min-width: 700px) { .rsvp-layout { grid-template-columns: .82fr 1.18fr; }.location-grid { grid-template-columns: .9fr 1.1fr; }.hotel-card .button-row { gap: .5rem; } }
+@media (min-width: 1000px) { .schedule-layout { grid-template-columns: .85fr 1.2fr .75fr; align-items: center; }.schedule { margin: 0; }.section-title { margin-bottom: 3.5rem; }.gallery-placeholder { min-height: 21rem; }.hero h1 { white-space: nowrap; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
