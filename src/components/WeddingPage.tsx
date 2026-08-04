@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { getWeddingTabId, getWeddingTabPath, type WeddingTabId } from "@/lib/weddingRoutes";
 import { CeremonyPeople } from "./CeremonyPeople";
 import { ClosingSection } from "./ClosingSection";
 import { FaqSection } from "./FaqSection";
@@ -25,16 +26,20 @@ const panels = {
 };
 
 export function WeddingPage() {
-  const [activeTab, setActiveTab] = useState<keyof typeof panels>("home");
+  const pathname = usePathname();
+  const router = useRouter();
+  const activeTab: WeddingTabId = getWeddingTabId(pathname) ?? "home";
 
   function selectTab(tabId: string) {
-    if (tabId in panels) {
-      setActiveTab(tabId as keyof typeof panels);
+    const path = getWeddingTabPath(tabId);
+
+    if (path) {
+      router.push(path, { scroll: false });
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 
-  const content = activeTab === "home" ? <Hero onRsvpClick={() => selectTab("rsvp")} /> : panels[activeTab];
+  const content = activeTab === "home" ? <Hero /> : panels[activeTab];
 
   return (
     <main>

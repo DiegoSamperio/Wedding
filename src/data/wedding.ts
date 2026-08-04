@@ -30,7 +30,7 @@ export const weddingContent = {
     subtitle:
       "Estamos muy felices de compartir el inicio de nuestro para siempre con ustedes. Aquí encontrarán toda la información para acompañarnos ese día.",
     primaryCtaLabel: "Confirmar asistencia",
-    primaryCtaHref: "#rsvp",
+    primaryCtaHref: "/rsvp",
   },
   sections: {
     story: { eyebrow: "Nuestra historia", title: "El camino que nos trajo hasta aquí" },
