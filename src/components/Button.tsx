@@ -10,8 +10,9 @@ export function Button({ children, href, variant = "primary", className = "", ..
   const classes = `button button--${variant} ${className}`.trim();
 
   if (href) {
+    const externalProps = href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {};
     return (
-      <a className={classes} href={href} {...(props as ComponentPropsWithoutRef<"a">)}>
+      <a className={classes} href={href} {...externalProps} {...(props as ComponentPropsWithoutRef<"a">)}>
         {children}
       </a>
     );

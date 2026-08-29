@@ -1,17 +1,9 @@
-@font-face {
-  font-family: "The Seasons";
-  src: url("/fonts/the-seasons/TheSeasons-Regular.woff2") format("woff2");
-  font-display: swap;
-}
+/* Symphony Pro is the script face used by the invitation. When the licensed
+   file is delivered, place it at the path below and enable this declaration.
 
 @font-face {
-  font-family: "Cinzel";
-  src: url("/fonts/cinzel/Cinzel-Variable.woff2") format("woff2");
+  font-family: "Symphony Pro";
+  src: url("/fonts/symphony-pro/SymphonyPro-Regular.woff2") format("woff2");
   font-display: swap;
 }
-
-@font-face {
-  font-family: "Cinzel Decorative";
-  src: url("/fonts/cinzel-decorative/CinzelDecorative-Regular.woff2") format("woff2");
-  font-display: swap;
-}
+*/

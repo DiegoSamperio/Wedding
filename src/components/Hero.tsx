@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { weddingContent } from "@/data/wedding";
 import { Button } from "./Button";
-import { ImagePlaceholder } from "./ImagePlaceholder";
 
 function getCountdownMessage(eventDate: string) {
   const remainingMilliseconds = new Date(eventDate).getTime() - Date.now();
@@ -32,18 +31,24 @@ export function Hero({ onRsvpClick }: HeroProps) {
 
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero__floral" aria-hidden="true">✦</div>
-      <ImagePlaceholder className="hero__placeholder" label="Foto de la pareja pendiente" />
-      <div className="hero__content">
+      <div className="hero__copy">
         <p className="hero__monogram">{weddingContent.couple.monogram}</p>
-        <h1 id="hero-title">{weddingContent.hero.title}</h1>
-        <p className="hero__families">{weddingContent.hero.familyNames}</p>
-        <p className="hero__location">{weddingContent.event.locationLabel}</p>
+        <h1 id="hero-title" aria-label={weddingContent.hero.title}>
+          <span className="hero__name hero__name--script" aria-hidden="true">Daniela</span>
+          <span className="hero__ampersand" aria-hidden="true">&</span>
+          <span className="hero__name hero__name--serif" aria-hidden="true">Rodrigo</span>
+        </h1>
+        <p className="hero__invitation-line">{weddingContent.hero.invitationLine}</p>
         <p className="hero__date">{weddingContent.event.displayDate}</p>
+        <p className="hero__time">{weddingContent.event.displayTime}</p>
+        <p className="hero__location">{weddingContent.event.locationLabel}</p>
         <p className="hero__message">{weddingContent.hero.subtitle}</p>
         <p className="countdown" aria-live="polite">{countdown}</p>
         {onRsvpClick ? <Button onClick={onRsvpClick}>{weddingContent.hero.primaryCtaLabel}</Button> : <Button href={weddingContent.hero.primaryCtaHref}>{weddingContent.hero.primaryCtaLabel}</Button>}
       </div>
+      <figure className="hero__art">
+        <img alt="Manos de Daniela y Rodrigo con el anillo de compromiso" src="/images/hero/anillo-principal.jpg" />
+      </figure>
     </section>
   );
 }

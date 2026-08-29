@@ -84,8 +84,8 @@ export function LocationSection() {
   return (
     <section className="section" id="ubicacion" aria-labelledby="location-title">
       <div className="section__inner">
-        <SectionTitle eyebrow={weddingContent.sections.location.eyebrow} title={weddingContent.sections.location.title} />
-        <div className="location-grid" id="location-title">
+        <SectionTitle id="location-title" eyebrow={weddingContent.sections.location.eyebrow} title={weddingContent.sections.location.title} />
+        <div className="location-grid">
           <article className="location-card location-card--main">
             <p className="eyebrow">{weddingContent.event.venueName}</p>
             <h3>{weddingContent.event.locationLabel}</h3>
@@ -95,17 +95,21 @@ export function LocationSection() {
               <Button href={weddingContent.event.wazeUrl} variant="secondary">Abrir en Waze</Button>
             </div>
           </article>
-          <ImagePlaceholder
-            alt="Croquis o mapa de llegada a Piedra Alta"
-            className="location-map"
-            label={weddingContent.sections.location.mapLabel}
-          />
+          <figure className="invitation-art location-map">
+            <img alt="Croquis ilustrado para llegar a Piedra Alta" src="/images/invitation/location-map-clean.webp" />
+          </figure>
         </div>
 
-        <div className="accommodation-heading">
-          <p className="eyebrow">Hospedaje</p>
-          <h3>{weddingContent.accommodation.title}</h3>
-          <p>{weddingContent.accommodation.intro}</p>
+        <div className="accommodation-intro">
+          <figure className="invitation-art accommodation-art">
+            <img alt="Ilustración de bienvenida a Morelos y hospedaje" src="/images/invitation/hospitality-clean.webp" />
+          </figure>
+          <div className="accommodation-heading">
+            <p className="eyebrow">Hospedaje</p>
+            <h3>{weddingContent.accommodation.title}</h3>
+            <p>{weddingContent.accommodation.intro}</p>
+            <p className="accommodation-note">Las tarifas son orientativas y pueden cambiar. Usa los accesos de cada opción para confirmar ubicación y disponibilidad.</p>
+          </div>
         </div>
 
         <div className="hotel-filters" aria-label="Filtros de hospedaje">
@@ -135,11 +139,11 @@ export function LocationSection() {
                 <dl className="hotel-meta">
                   <div><dt>Distancia</dt><dd>{hotel.distance} a Piedra Alta</dd></div>
                   {hotel.address ? <div><dt>Dirección</dt><dd>{hotel.address}</dd></div> : null}
-                  <div><dt>Precio</dt><dd>{hotel.price}</dd></div>
-                  <div><dt>Calificación</dt><dd>{hotel.rating}</dd></div>
+                  <div><dt>Tarifa orientativa</dt><dd>{hotel.price}</dd></div>
+                  {hotel.ratingValue !== null ? <div><dt>Calificación</dt><dd>{hotel.rating}</dd></div> : null}
                   {hotel.reviewCount ? <div><dt>Reseñas</dt><dd>{hotel.reviewCount}</dd></div> : null}
                 </dl>
-                <p className="hotel-card__description">{hotel.description}</p>
+                <p className="hotel-card__description">{hotel.description} <strong>Tarifa especial no confirmada.</strong></p>
                 <div className="hotel-tags" aria-label={`Tags de ${hotel.name}`}>
                   {hotel.tags.map((tag) => <span key={tag}>{tag}</span>)}
                 </div>
@@ -155,6 +159,10 @@ export function LocationSection() {
         {visibleHotels.length === 0 ? (
           <p className="hotel-empty" role="status">No hay hoteles que coincidan con esos filtros.</p>
         ) : null}
+        <div className="airbnb-card">
+          <div><p className="eyebrow">Otra opción</p><h3>Sugerencias Airbnb</h3><p>Consulta la selección compartida por Daniela y Rodrigo.</p></div>
+          <Button href={weddingContent.accommodation.airbnb} variant="secondary">Ver sugerencias Airbnb</Button>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,31 @@
 :root {
-  --paper-50: #F9F7F4; --paper-100: #F4F1EC; --paper-200: #EAE6DE; --taupe-300: #D1C4B0; --taupe-500: #AB9280; --brown-900: #4E342A;
-  --champagne-50: #FFFDEF; --champagne-100: #FEF8D6; --champagne-200: #FEF3AE; --champagne-300: #F8E687; --gold-400: #EFD36A; --gold-600: #E0C153;
-  --sage-50: #E9EBE3; --sage-100: #D9E0CB; --sage-200: #BECBA7; --olive-400: #9AA881; --olive-600: #8CA06B; --olive-800: #77865C;
-  --font-display: "The Seasons", "Cormorant Garamond", serif; --font-decorative: "Cinzel Decorative", "Cinzel", serif; --font-serif: "Cinzel", "Cormorant Garamond", serif; --font-body: "Cinzel", Georgia, serif;
-  --content-max: 76rem; --reading-max: 42rem; --gutter: clamp(1.25rem, 5vw, 5rem); --section-y: clamp(4.5rem, 11vw, 9rem); --radius-sm: .75rem; --radius-md: 1.25rem; --radius-lg: 2rem;
+  --paper-50: #fbfaf6;
+  --paper-100: #f7f4ed;
+  --paper-200: #eee9dc;
+  --taupe-300: #d7cfbe;
+  --taupe-500: #8e8978;
+  --brown-900: #52593d;
+  --champagne-50: #fffdf5;
+  --champagne-100: #fff8da;
+  --champagne-200: #f7edb5;
+  --gold-400: #e8ca53;
+  --gold-600: #d5b53b;
+  --sage-50: #f0f3e9;
+  --sage-100: #e1e8d4;
+  --sage-200: #cbd7b7;
+  --olive-400: #a9b985;
+  --olive-600: #8da662;
+  --olive-800: #74894d;
+  --font-script: "Symphony Pro", "Snell Roundhand", "Apple Chancery", cursive;
+  --font-display: "Cinzel", "Bodoni 72", Didot, serif;
+  --font-decorative: "Cinzel", "Bodoni 72", serif;
+  --font-serif: "Cinzel", Georgia, serif;
+  --font-body: "Poppins", Arial, sans-serif;
+  --content-max: 108rem;
+  --reading-max: 42rem;
+  --gutter: clamp(1.1rem, 4vw, 4rem);
+  --section-y: clamp(4rem, 9vw, 7.5rem);
+  --radius-sm: .65rem;
+  --radius-md: 1.15rem;
+  --radius-lg: 2rem;
 }

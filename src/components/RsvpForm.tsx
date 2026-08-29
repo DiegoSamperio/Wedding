@@ -4,35 +4,71 @@ import { FormEvent, useState } from "react";
 import { weddingContent } from "@/data/wedding";
 import { SectionTitle } from "./SectionTitle";
 
-export function RsvpForm() {
-  const [attending, setAttending] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const textFields = weddingContent.rsvp.fields.slice(0, 2);
-  const guestCountField = weddingContent.rsvp.fields[3];
-  const notesFields = weddingContent.rsvp.fields.slice(4);
+type SubmissionState = "idle" | "sending" | "success" | "error";
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export function RsvpForm() {
+  const [attending, setAttending] = useState<"yes" | "no" | "">("");
+  const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      guestName: String(formData.get("guestName") || "").trim(),
+      attending,
+      guestCount: attending === "yes" ? String(formData.get("guestCount") || "") : null,
+      dietaryRestrictions:
+        attending === "yes" ? String(formData.get("dietaryRestrictions") || "").trim() : null,
+      message: String(formData.get("message") || "").trim(),
+    };
+
+    setSubmissionState("sending");
+    setStatusMessage("");
+
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) throw new Error(result.message || "No pudimos enviar tu confirmación.");
+
+      setSubmissionState("success");
+      setStatusMessage(result.message || "Gracias. Recibimos tu confirmación.");
+      form.reset();
+      setAttending("");
+    } catch (error) {
+      setSubmissionState("error");
+      setStatusMessage(error instanceof Error ? error.message : "No pudimos enviar tu confirmación.");
+    }
   }
 
   return (
     <section className="section section--rsvp" id="rsvp" aria-labelledby="rsvp-title">
       <div className="section__inner rsvp-layout">
         <div className="rsvp-copy">
-          <SectionTitle eyebrow={weddingContent.sections.rsvp.eyebrow} title={weddingContent.rsvp.title}>
+          <figure className="invitation-art rsvp-art">
+            <img alt="Ilustración de sobre, sello y limones de la invitación" src="/images/invitation/rsvp-art.webp" />
+          </figure>
+        </div>
+
+        <div className="rsvp-form-column">
+          <SectionTitle id="rsvp-title" eyebrow={weddingContent.sections.rsvp.eyebrow} title={weddingContent.rsvp.title}>
             <p>{weddingContent.rsvp.description}</p>
           </SectionTitle>
-        </div>
-        <form className="form-card" onSubmit={handleSubmit}>
-          {textFields.map((field) => (
-            <label className="field" key={field.id}>
-              <span>{field.label}</span>
-              <input name={field.id} required={field.required} />
-            </label>
-          ))}
+
+          <form className="form-card" onSubmit={handleSubmit}>
+          <label className="field">
+            <span>Nombre completo</span>
+            <input autoComplete="name" maxLength={120} name="guestName" required />
+          </label>
+
           <fieldset className="choice-fieldset">
-            <legend>{weddingContent.rsvp.fields[2].label}</legend>
+            <legend>Confirmar asistencia</legend>
             <div className="choice-row">
               {[
                 ["yes", "Sí, con gusto"],
@@ -42,7 +78,7 @@ export function RsvpForm() {
                   <input
                     checked={attending === value}
                     name="attending"
-                    onChange={() => setAttending(value)}
+                    onChange={() => setAttending(value as "yes" | "no")}
                     required
                     type="radio"
                     value={value}
@@ -53,29 +89,44 @@ export function RsvpForm() {
               ))}
             </div>
           </fieldset>
-          {attending !== "no" ? (
-            <label className="field">
-              <span>{guestCountField.label}</span>
-              <select name="guestCount" required>
-                <option value="">Selecciona</option>
-                {guestCountField.options?.map((option) => <option key={option}>{option}</option>)}
-              </select>
-            </label>
-          ) : null}
-          {notesFields.map((field) => (
-            <label className="field" key={field.id}>
-              <span>{field.label}</span>
-              <textarea name={field.id} />
-            </label>
-          ))}
-          <button className="button button--primary" type="submit">{weddingContent.sections.rsvp.submitLabel}</button>
-          {submitted ? (
-            <div className="form-status" role="status">
-              <strong>Confirmación recibida.</strong>
-              <span>Gracias. Por ahora este mensaje es visual y todavía no se guarda en backend.</span>
+
+          {attending === "yes" ? (
+            <div className="conditional-fields">
+              <label className="field">
+                <span>Número de asistentes</span>
+                <select name="guestCount" required>
+                  <option value="">Selecciona</option>
+                  {weddingContent.rsvp.fields.find((field) => field.id === "guestCount")?.options?.map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+                <small className="field-note">{weddingContent.rsvp.guestCountNote}</small>
+              </label>
+              <label className="field">
+                <span>Restricciones alimenticias</span>
+                <textarea maxLength={500} name="dietaryRestrictions" />
+              </label>
             </div>
           ) : null}
-        </form>
+
+          {attending ? (
+            <label className="field">
+              <span>Mensaje opcional para los novios</span>
+              <textarea maxLength={1000} name="message" />
+            </label>
+          ) : null}
+
+          <button className="button button--primary" disabled={submissionState === "sending"} type="submit">
+            {submissionState === "sending" ? "Enviando…" : weddingContent.sections.rsvp.submitLabel}
+          </button>
+
+          {statusMessage ? (
+            <div className={`form-status form-status--${submissionState}`} role={submissionState === "error" ? "alert" : "status"}>
+              {statusMessage}
+            </div>
+          ) : null}
+          </form>
+        </div>
       </div>
     </section>
   );
