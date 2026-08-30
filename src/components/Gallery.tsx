@@ -2,12 +2,12 @@ import { weddingContent } from "@/data/wedding";
 import { SectionTitle } from "./SectionTitle";
 
 const moments = [
-  { src: "/images/invitation/moment-couple.webp", title: "Daniela & Rodrigo", note: "Nuestro para siempre" },
+  { src: "/images/invitation/moment-couple-clean.webp", title: "Daniela & Rodrigo", note: "Nuestro para siempre" },
   { src: "/images/invitation/moment-envelope.webp", title: "La invitación", note: "20 de marzo de 2027" },
-  { src: "/images/invitation/moment-parents.webp", title: "Nuestros padres", note: "El amor que nos formó" },
+  { src: "/images/invitation/moment-parents-clean.webp", title: "Nuestros padres", note: "El amor que nos formó" },
   { src: "/images/invitation/moment-padrinos.webp", title: "Nuestros padrinos", note: "Quienes caminan con nosotros" },
   { src: "/images/invitation/moment-memorial.webp", title: "En nuestros corazones", note: "Siempre presentes" },
-  { src: "/images/invitation/moment-outfits.webp", title: "Nos vemos ese día", note: "Listos para celebrar" },
+  { src: "/images/invitation/moment-outfits-clean.webp", title: "Nos vemos ese día", note: "Listos para celebrar" },
 ];
 
 export function Gallery() {
@@ -23,7 +23,6 @@ export function Gallery() {
             </article>
           ))}
         </div>
-        <p className="gallery-note">Una selección ilustrada de nuestra invitación. Más adelante podremos sumar aquí fotografías personales.</p>
       </div>
     </section>
   );
