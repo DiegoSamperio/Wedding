@@ -102,7 +102,9 @@ img { display: block; max-width: 100%; }
 
 .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.5rem); }
 .gallery-moment { overflow: hidden; padding: .55rem .55rem 1rem; border: 1px solid rgba(116,137,77,.18); border-radius: 1.2rem; background: rgba(255,253,245,.9); box-shadow: 0 14px 35px rgba(82,89,61,.06); }
-.gallery-moment img { width: 100%; aspect-ratio: 4 / 3; border-radius: .85rem; background: #fbfaf6; object-fit: contain; object-position: center; }
+.gallery-moment__visual { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: .85rem; background: #fbfaf6; }
+.gallery-moment img { width: 100%; height: 100%; border-radius: inherit; object-fit: contain; object-position: center; }
+.gallery-moment__names { position: absolute; top: 8%; left: 4%; right: 4%; color: #79a44e; font-family: var(--font-display); font-size: clamp(.58rem, 1.05vw, .88rem); font-weight: 700; line-height: 1.25; text-align: center; text-transform: uppercase; }
 .gallery-moment p { margin: .75rem .35rem .08rem; color: var(--olive-800); font-family: var(--font-display); font-size: 1rem; }
 .gallery-moment span { margin-inline: .35rem; color: var(--taupe-500); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; }
 
@@ -252,7 +254,8 @@ img { display: block; max-width: 100%; }
   .gift-card--bank { grid-column: auto; }
   .story-timeline__item { grid-template-columns: 1fr; gap: .25rem; }
   .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-moment img { aspect-ratio: 5 / 4; }
+  .gallery-moment__visual { aspect-ratio: 5 / 4; }
+  .gallery-moment__names { top: 7%; font-size: clamp(.55rem, 2.7vw, .78rem); }
   .hotel-grid { grid-template-columns: 1fr; }
   .hotel-card > .image-placeholder { min-height: 12rem; border-right: 0; border-bottom: 1px solid rgba(116,137,77,.16); }
   .airbnb-card { align-items: stretch; flex-direction: column; }

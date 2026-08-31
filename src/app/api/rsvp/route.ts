@@ -26,19 +26,31 @@ export async function POST(request: Request) {
 
   if (webhookUrl) {
     try {
+      const webhookSecret = process.env.RSVP_WEBHOOK_SECRET?.trim();
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          ...(process.env.RSVP_WEBHOOK_SECRET
-            ? { Authorization: `Bearer ${process.env.RSVP_WEBHOOK_SECRET}` }
-            : {}),
+          ...(webhookSecret ? { Authorization: `Bearer ${webhookSecret}` } : {}),
         },
-        body: JSON.stringify(submission),
+        body: JSON.stringify({ ...submission, secret: webhookSecret || "" }),
         cache: "no-store",
       });
 
-      if (!response.ok) throw new Error(`Webhook responded with ${response.status}`);
+      const delivery = (await response.json().catch(() => null)) as
+        | { ok?: boolean; action?: "created" | "updated"; error?: string }
+        | null;
+
+      if (!response.ok || !delivery?.ok) {
+        throw new Error(delivery?.error || `Webhook responded with ${response.status}`);
+      }
+
+      if (delivery.action === "updated") {
+        return NextResponse.json({
+          action: "updated",
+          message: "Ya teníamos una confirmación con ese nombre. Actualizamos tus datos.",
+        });
+      }
     } catch (error) {
       console.error("RSVP delivery failed", error instanceof Error ? error.message : "Unknown error");
       return NextResponse.json(
@@ -58,5 +70,8 @@ export async function POST(request: Request) {
     }
   }
 
-  return NextResponse.json({ message: "Gracias. Recibimos y guardamos tu confirmación." });
+  return NextResponse.json({
+    action: "created",
+    message: "Gracias. Recibimos y guardamos tu confirmación.",
+  });
 }
