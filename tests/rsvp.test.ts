@@ -14,11 +14,11 @@ test("requires a full name and attendance choice", () => {
   assert.equal(parseRsvpPayload({ guestName: "Daniela Samperio", attending: "" }).ok, false);
 });
 
-test("accepts and sanitizes an attending guest", () => {
+test("accepts and sanitizes an attending party of up to four guests", () => {
   const result = parseRsvpPayload({
     guestName: "  Daniela   Samperio  ",
     attending: "yes",
-    guestCount: "2",
+    guestCount: "4",
     dietaryRestrictions: "  Sin   nueces ",
     message: "  Nos vemos   pronto ",
   });
@@ -28,7 +28,7 @@ test("accepts and sanitizes an attending guest", () => {
     data: {
       guestName: "Daniela Samperio",
       attending: "yes",
-      guestCount: 2,
+      guestCount: 4,
       dietaryRestrictions: "Sin nueces",
       message: "Nos vemos pronto",
     },
@@ -57,5 +57,6 @@ test("removes guest-only fields when the guest declines", () => {
 });
 
 test("rejects guest counts outside the invitation range", () => {
-  assert.equal(parseRsvpPayload({ guestName: "Daniela Samperio", attending: "yes", guestCount: "3" }).ok, false);
+  assert.equal(parseRsvpPayload({ guestName: "Daniela Samperio", attending: "yes", guestCount: "0" }).ok, false);
+  assert.equal(parseRsvpPayload({ guestName: "Daniela Samperio", attending: "yes", guestCount: "5" }).ok, false);
 });

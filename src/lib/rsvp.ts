@@ -30,7 +30,7 @@ export function parseRsvpPayload(value: unknown): ParseResult {
 
   if (attending === "yes") {
     guestCount = Number(input.guestCount);
-    if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > 2) {
+    if (!Number.isInteger(guestCount) || guestCount < 1 || guestCount > 4) {
       return { ok: false, message: "Selecciona un número de asistentes válido." };
     }
     dietaryRestrictions = cleanText(input.dietaryRestrictions, 500) || null;

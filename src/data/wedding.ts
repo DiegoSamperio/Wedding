@@ -433,7 +433,7 @@ export const weddingContent = {
     fields: [
       { id: "guestName", label: "Nombre completo", type: "text", required: true },
       { id: "attending", label: "Confirmar asistencia", type: "choice", required: true },
-      { id: "guestCount", label: "Número de asistentes", type: "select", required: true, options: ["1", "2"] },
+      { id: "guestCount", label: "Número de asistentes", type: "select", required: true, options: ["1", "2", "3", "4"] },
       { id: "dietaryRestrictions", label: "Restricciones alimenticias", type: "textarea", required: false },
       { id: "message", label: "Mensaje opcional para los novios", type: "textarea", required: false },
     ],

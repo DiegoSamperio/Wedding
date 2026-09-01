@@ -21,7 +21,7 @@ test("the RSVP endpoint saves every form field when no external webhook is confi
         body: JSON.stringify({
           guestName: "Invitada de prueba",
           attending: "yes",
-          guestCount: "2",
+          guestCount: "4",
           dietaryRestrictions: "Vegetariana",
           message: "Mensaje de prueba",
         }),
@@ -36,7 +36,7 @@ test("the RSVP endpoint saves every form field when no external webhook is confi
 
     const csv = await readFile(storagePath, "utf8");
     assert.match(csv, /Invitada de prueba/);
-    assert.match(csv, /"2"/);
+    assert.match(csv, /"4"/);
     assert.match(csv, /Vegetariana/);
     assert.match(csv, /Mensaje de prueba/);
   } finally {
@@ -71,7 +71,7 @@ test("the RSVP endpoint forwards every field and reports a duplicate-name update
         body: JSON.stringify({
           guestName: "Invitada Repetida",
           attending: "yes",
-          guestCount: "2",
+          guestCount: "4",
           dietaryRestrictions: "Alergia a nueces",
           message: "Datos corregidos",
         }),
@@ -84,7 +84,7 @@ test("the RSVP endpoint forwards every field and reports a duplicate-name update
       message: "Ya teníamos una confirmación con ese nombre. Actualizamos tus datos.",
     });
     assert.equal(forwardedBody?.guestName, "Invitada Repetida");
-    assert.equal(forwardedBody?.guestCount, 2);
+    assert.equal(forwardedBody?.guestCount, 4);
     assert.equal(forwardedBody?.dietaryRestrictions, "Alergia a nueces");
     assert.equal(forwardedBody?.message, "Datos corregidos");
     assert.equal(forwardedBody?.secret, "test-secret");

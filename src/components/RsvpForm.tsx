@@ -52,7 +52,10 @@ export function RsvpForm() {
       <div className="section__inner rsvp-layout">
         <div className="rsvp-copy">
           <figure className="invitation-art rsvp-art">
-            <img alt="Ilustración de sobre, sello y limones de la invitación" src="/images/invitation/rsvp-art.webp" />
+            <img
+              alt="Ilustración que invita a revisar el número de boletos asignados"
+              src="/images/invitation/rsvp-art-tickets.jpg"
+            />
           </figure>
         </div>
 
@@ -94,13 +97,15 @@ export function RsvpForm() {
             <div className="conditional-fields">
               <label className="field">
                 <span>Número de asistentes</span>
-                <select name="guestCount" required>
+                <small className="field-note" id="guest-count-note">
+                  {weddingContent.rsvp.guestCountNote}
+                </small>
+                <select aria-describedby="guest-count-note" name="guestCount" required>
                   <option value="">Selecciona</option>
                   {weddingContent.rsvp.fields.find((field) => field.id === "guestCount")?.options?.map((option) => (
                     <option key={option} value={option}>{option}</option>
                   ))}
                 </select>
-                <small className="field-note">{weddingContent.rsvp.guestCountNote}</small>
               </label>
               <label className="field">
                 <span>Restricciones alimenticias</span>
