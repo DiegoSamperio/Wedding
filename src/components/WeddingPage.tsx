@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { getWeddingTabId, getWeddingTabPath, type WeddingTabId } from "@/lib/weddingRoutes";
 import { CeremonyPeople } from "./CeremonyPeople";
+import { AccommodationSection } from "./AccommodationSection";
 import { ClosingSection } from "./ClosingSection";
 import { Gallery } from "./Gallery";
 import { GiftsSection } from "./GiftsSection";
@@ -16,9 +17,10 @@ import { WeddingTabs } from "./WeddingTabs";
 const panels = {
   home: <Hero />,
   rsvp: <RsvpForm />,
-  us: <><StoryTimeline /><Gallery /></>,
-  day: <><WeddingDayTimeline /><CeremonyPeople /></>,
+  us: <><StoryTimeline /><CeremonyPeople /><Gallery /></>,
+  day: <WeddingDayTimeline />,
   location: <LocationSection />,
+  accommodation: <AccommodationSection />,
   gifts: <GiftsSection />,
   closing: <ClosingSection />,
 };

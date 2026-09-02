@@ -5,6 +5,7 @@ export const weddingContent = {
     { id: "us", label: "Nosotros" },
     { id: "day", label: "Ese día" },
     { id: "location", label: "Ubicación" },
+    { id: "accommodation", label: "Hospedaje" },
     { id: "gifts", label: "Regalos" },
     { id: "closing", label: "Cierre" },
   ],
@@ -35,7 +36,7 @@ export const weddingContent = {
   },
   sections: {
     story: { eyebrow: "Nosotros", title: "Nuestra historia" },
-    gallery: { eyebrow: "Pequeños recuerdos, grandes historias", title: "Momentos" },
+    gallery: { eyebrow: "Nosotros", title: "Pequeños recuerdos, grandes historias" },
     day: {
       eyebrow: "Ese día",
       title: "El día de nuestra boda",
@@ -47,7 +48,8 @@ export const weddingContent = {
     ceremony: { eyebrow: "Nuestra gente" },
     songs: { eyebrow: "Música", submitLabel: "Enviar sugerencia" },
     rsvp: { eyebrow: "RSVP", submitLabel: "Enviar confirmación" },
-    location: { eyebrow: "Cómo llegar", title: "Ubicación y hospedaje", mapLabel: "Croquis de Piedra Alta", sketchLabel: "Croquis de Piedra Alta" },
+    location: { eyebrow: "Cómo llegar", title: "Ubicación", mapLabel: "Croquis de Piedra Alta", sketchLabel: "Croquis de Piedra Alta" },
+    accommodation: { title: "Hospedaje" },
     gifts: { eyebrow: "Mesa de regalos", title: "Regalos" },
     closing: { albumEyebrow: "Álbum compartido", albumButtonLabel: "Abrir álbum compartido" },
   },
@@ -158,9 +160,33 @@ export const weddingContent = {
     },
   ],
   galleries: [
-    { id: "proposal", title: "Propuesta", images: [] },
-    { id: "engagement", title: "Pedida", images: [] },
-    { id: "engagement-party", title: "Fiesta de Compromiso", images: [] },
+    {
+      id: "proposal",
+      title: "Propuesta de matrimonio",
+      coverSrc: "/images/closing/propuesta-florencia.jpg",
+      coverAlt: "Rodrigo proponiéndole matrimonio a Daniela en Florencia",
+      images: [
+        {
+          src: "/images/closing/propuesta-florencia.jpg",
+          alt: "Rodrigo proponiéndole matrimonio a Daniela con Florencia al fondo",
+        },
+        {
+          src: "/images/hero/anillo-principal.jpg",
+          alt: "Daniela y Rodrigo muestran el anillo de compromiso en Florencia",
+        },
+      ],
+    },
+    {
+      id: "engagement",
+      title: "Pedida de mano",
+      coverSrc: null,
+      coverAlt: "Fotografías de la pedida de mano pendientes de agregar",
+      images: [
+        { src: null, alt: "Primera fotografía de la pedida de mano pendiente de agregar" },
+        { src: null, alt: "Segunda fotografía de la pedida de mano pendiente de agregar" },
+        { src: null, alt: "Tercera fotografía de la pedida de mano pendiente de agregar" },
+      ],
+    },
   ],
   ceremonyTitle: "Quienes forman parte de nuestro para siempre",
   ceremonyPeople: [
