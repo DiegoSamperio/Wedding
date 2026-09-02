@@ -10,7 +10,6 @@ export function GiftsSection() {
     <section className="section section--gifts" id="regalos" aria-labelledby="gifts-title">
       <div className="section__inner">
         <div className="gifts-layout">
-          <figure className="invitation-art gifts-art"><img alt="Ilustración de mesa de regalos de la invitación" src="/images/invitation/gifts.webp" /></figure>
           <div className="gifts-content">
             <SectionTitle id="gifts-title" eyebrow={weddingContent.sections.gifts.eyebrow} title={weddingContent.sections.gifts.title}>
               <p>{giftRegistry.intro}</p>

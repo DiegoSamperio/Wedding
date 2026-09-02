@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { weddingContent } from "@/data/wedding";
 
 type WeddingTabsProps = {
@@ -6,6 +9,12 @@ type WeddingTabsProps = {
 };
 
 export function WeddingTabs({ activeTab, onChange }: WeddingTabsProps) {
+  const activeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    activeButtonRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, [activeTab]);
+
   return (
     <nav className="wedding-tabs" aria-label="Secciones de la invitación">
       <p className="wedding-tabs__monogram" aria-hidden="true">{weddingContent.couple.monogram}</p>
@@ -18,6 +27,7 @@ export function WeddingTabs({ activeTab, onChange }: WeddingTabsProps) {
             id={`tab-${tab.id}`}
             key={tab.id}
             onClick={() => onChange(tab.id)}
+            ref={activeTab === tab.id ? activeButtonRef : undefined}
             role="tab"
             type="button"
           >

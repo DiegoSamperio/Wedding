@@ -4,6 +4,7 @@ export const weddingTabRoutes = {
   day: "/ese-dia",
   rsvp: "/rsvp",
   location: "/ubicacion",
+  accommodation: "/hospedaje",
   gifts: "/mesa-de-regalos",
   closing: "/cierre",
 } as const;

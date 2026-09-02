@@ -53,8 +53,8 @@ export function RsvpForm() {
         <div className="rsvp-copy">
           <figure className="invitation-art rsvp-art">
             <img
-              alt="Ilustración que invita a revisar el número de boletos asignados"
-              src="/images/invitation/rsvp-art-tickets.jpg"
+              alt="Ilustración con el mensaje: Revisa el número de boletos asignados en tu invitación."
+              src="/images/invitation/rsvp-art-tickets-no-rsvp.png"
             />
           </figure>
         </div>

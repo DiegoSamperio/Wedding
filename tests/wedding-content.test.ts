@@ -17,3 +17,20 @@ test("uses the final gift registry options from the invitation", () => {
 test("uses the final invitation wording for the shared album", () => {
   assert.equal(weddingContent.photoAlbum.title, "Queremos vivir este día también desde tus ojos");
 });
+
+test("separates location and accommodation in the primary navigation", () => {
+  assert.deepEqual(
+    weddingContent.navigation
+      .filter((item) => item.id === "location" || item.id === "accommodation")
+      .map((item) => [item.id, item.label]),
+    [["location", "Ubicación"], ["accommodation", "Hospedaje"]],
+  );
+});
+
+test("configures only the two requested photo galleries", () => {
+  assert.deepEqual(
+    weddingContent.galleries.map((gallery) => gallery.title),
+    ["Propuesta de matrimonio", "Pedida de mano"],
+  );
+  assert.ok(weddingContent.galleries.every((gallery) => gallery.images.length > 0));
+});
