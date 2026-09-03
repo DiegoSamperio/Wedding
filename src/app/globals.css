@@ -91,7 +91,10 @@ img { display: block; max-width: 100%; }
 .form-status--success { color: var(--olive-800); background: var(--sage-100); }
 .form-status--error { color: #7a3f33; background: #f8e5df; }
 
-.story-art { width: min(100%, 54rem); margin-inline: auto; }
+.section--story, .section--ceremony, .section--gallery, .section--day, .section--location, .section--accommodation { padding-block: clamp(1.5rem, 3vw, 2.5rem); }
+.section--ceremony .section-title, .section--gallery .section-title, .section--location .section-title, .section--accommodation .section-title { margin-bottom: clamp(1rem, 2vw, 1.5rem); }
+.section--ceremony .section-title h2 { font-size: clamp(1.7rem, 3vw, 2.8rem); }
+.story-art { width: min(100%, 32rem); margin-inline: auto; }
 
 .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); width: min(100%, 74rem); margin-inline: auto; }
 .gallery-card { overflow: hidden; border: 1px solid rgba(116,137,77,.18); border-radius: 1.2rem; background: rgba(255,253,245,.9); box-shadow: 0 14px 35px rgba(82,89,61,.06); }
@@ -119,39 +122,31 @@ img { display: block; max-width: 100%; }
 .lightbox__visual img { width: 100%; height: 100%; object-fit: contain; }
 .lightbox__position { margin: .7rem 0 0; font-family: var(--font-display); font-size: .7rem; letter-spacing: .09em; text-align: center; }
 
-.day-grid { display: grid; grid-template-columns: minmax(24rem, 1fr) minmax(28rem, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
-.schedule-art { align-self: start; }
-.weather-card { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin: 2rem 0 0; padding: 1.2rem; border: 1px solid rgba(116,137,77,.2); border-radius: 1.1rem; background: rgba(255,248,218,.48); }
+.day-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.85rem, 2vw, 1.5rem); align-items: start; width: min(100%, 72rem); margin-inline: auto; }
+.schedule-art, .dress-code__art { justify-self: center; width: min(100%, 29rem); }
+.schedule-art img, .dress-code__art img { width: 100%; height: auto; }
+.weather-card { display: grid; grid-column: 1 / -1; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin: 0; padding: .9rem 1.1rem; border: 1px solid rgba(116,137,77,.2); border-radius: 1.1rem; background: rgba(255,248,218,.48); }
 .weather-card > span { color: var(--gold-600); font-size: 2rem; }
 .weather-card h3 { margin-bottom: .3rem; font-size: 1.25rem; }
 .weather-card p:last-child { margin-bottom: 0; color: var(--taupe-500); font-size: .86rem; }
-.section--dress-code { color: var(--olive-800); background: var(--paper-100); }
-.dress-code { display: grid; grid-template-columns: minmax(24rem, 1fr) minmax(24rem, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.dress-code__art { align-self: start; }
-.dress-code__copy { display: grid; place-items: center; }
-.dress-code__inspiration { min-width: 14rem; min-height: 56px; border-width: 2px; border-color: var(--olive-600); color: var(--gold-600); background: rgba(255,253,245,.98); font-size: .83rem; letter-spacing: .08em; box-shadow: 0 10px 30px rgba(82,89,61,.08); }
+.dress-code__art { position: relative; }
+.dress-code__inspiration { position: absolute; right: 6%; bottom: 6%; z-index: 1; width: clamp(8.5rem, 42%, 11rem); min-width: 0; min-height: 42px; padding: .55rem .8rem; border-width: 2px; border-color: var(--olive-600); color: var(--gold-600); background: rgba(255,253,245,.96); font-size: clamp(.58rem, 1vw, .72rem); letter-spacing: .08em; box-shadow: 0 10px 30px rgba(82,89,61,.12); }
 
-.ceremony-art-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
-.ceremony-art-grid .invitation-art { align-self: start; }
-.ceremony-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.ceremony-grid--details { margin-top: 1.5rem; }
-.ceremony-card { padding: 1.35rem; border: 1px solid rgba(116,137,77,.2); border-radius: 1rem; text-align: center; background: rgba(255,253,245,.78); }
-.ceremony-card__ornament { display: block; margin-bottom: .65rem; color: var(--gold-600); font-size: 1.25rem; }
-.ceremony-card h3 { color: var(--olive-800); font-size: 1.25rem; }
-.ceremony-card p { color: var(--taupe-500); font-size: .84rem; }
-.ceremony-card ul { margin: 1rem 0 0; padding: 0; list-style: none; }
-.ceremony-card li { padding: .32rem 0; border-top: 1px solid rgba(116,137,77,.14); font-family: var(--font-display); font-size: .72rem; }
+.ceremony-art-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.85rem, 2vw, 1.5rem); width: min(100%, 72rem); margin-inline: auto; }
+.ceremony-art-grid .invitation-art { justify-self: center; width: min(100%, 29rem); }
 
-.location-grid { display: grid; grid-template-columns: minmax(22rem, .72fr) minmax(30rem, 1.28fr); gap: 1.5rem; align-items: start; }
-.location-card { display: grid; align-content: center; min-height: clamp(26rem, 34vw, 34rem); padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid rgba(116,137,77,.2); border-radius: 1.4rem; background: linear-gradient(145deg, rgba(225,232,212,.7), rgba(255,253,245,.94)); }
-.location-card h3 { margin-bottom: .7rem; color: var(--olive-800); font-size: clamp(2rem, 3.5vw, 3.4rem); }
+.location-grid { display: grid; grid-template-columns: minmax(18rem, .85fr) minmax(24rem, 1.15fr); gap: clamp(1rem, 2vw, 1.5rem); align-items: stretch; width: min(100%, 76rem); margin-inline: auto; }
+.location-card { display: grid; align-content: center; min-height: 0; padding: clamp(1.25rem, 3vw, 2.25rem); border: 1px solid rgba(116,137,77,.2); border-radius: 1.4rem; background: linear-gradient(145deg, rgba(225,232,212,.7), rgba(255,253,245,.94)); }
+.location-card h3 { margin-bottom: .7rem; color: var(--olive-800); font-size: clamp(1.75rem, 2.7vw, 2.8rem); }
 .location-card address { margin-bottom: 1.5rem; color: var(--taupe-500); }
 .button-row { display: flex; flex-wrap: wrap; gap: .65rem; }
-.location-map { align-self: start; }
+.location-map { align-self: center; justify-self: center; width: min(100%, 29rem); }
 .section--accommodation { background: radial-gradient(circle at 88% 4%, rgba(255,248,218,.55), transparent 40%), var(--paper-100); }
 .hotel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.hotel-card { display: flex; min-height: 17rem; border: 1px solid rgba(116,137,77,.18); border-radius: 1.1rem; background: rgba(255,253,245,.9); }
-.hotel-card__body { display: flex; flex: 1; flex-direction: column; padding: 1.25rem; }
+.hotel-card { display: flex; flex-direction: column; overflow: hidden; min-height: 0; border: 1px solid rgba(116,137,77,.18); border-radius: 1.1rem; background: rgba(255,253,245,.9); }
+.hotel-card > .image-placeholder { flex: 0 0 auto; min-height: 9rem; aspect-ratio: 16 / 9; border: 0; border-bottom: 1px solid rgba(116,137,77,.16); border-radius: 0; }
+.hotel-card > .image-placeholder img { object-fit: cover; }
+.hotel-card__body { display: flex; flex: 1; flex-direction: column; padding: 1rem; }
 .hotel-card h3 { margin-bottom: .65rem; color: var(--olive-800); font-size: clamp(1.25rem, 1.8vw, 1.55rem); }
 .hotel-card__distance { color: var(--olive-800); font-family: var(--font-display); font-size: .74rem; }
 .hotel-card address { margin-bottom: 1.1rem; color: var(--taupe-500); font-size: .82rem; }
@@ -188,7 +183,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 1050px) {
   .hero { grid-template-columns: .95fr 1.05fr; }
   .hero__copy { padding-inline: clamp(1.5rem, 4vw, 3.5rem); }
-  .day-grid, .dress-code, .location-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .day-grid, .location-grid { grid-template-columns: 1fr 1fr; }
   .hotel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .closing { grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1.5rem; }
 }
@@ -204,17 +199,9 @@ img { display: block; max-width: 100%; }
   .hero__message { margin-inline: auto; }
   .hero__art { border-top: 1px solid rgba(116,137,77,.16); border-left: 0; }
   .hero__art img { height: auto; }
-  .rsvp-layout, .day-grid, .dress-code, .location-grid { grid-template-columns: 1fr; }
+  .rsvp-layout { grid-template-columns: 1fr; }
   .rsvp-art { width: min(100%, 31rem); }
   .rsvp-form-column { width: 100%; }
-  .story-art img { height: auto; }
-  .schedule-art, .dress-code__art, .location-map { height: auto; min-height: 0; }
-  .schedule-art img, .dress-code__art img, .location-map img { height: auto; }
-  .ceremony-art-grid { grid-template-columns: 1fr; }
-  .ceremony-art-grid .invitation-art { height: auto; min-height: 0; }
-  .ceremony-art-grid .invitation-art img { height: auto; }
-  .ceremony-grid { grid-template-columns: 1fr; }
-  .location-card { min-height: 21rem; }
   .closing { grid-template-columns: 1fr; gap: 0; height: auto; min-height: 0; padding: 0; overflow: visible; }
   .closing__art { aspect-ratio: 3 / 2; border-inline: 0; border-radius: 0; box-shadow: none; }
   .closing__art img { object-position: center; }
@@ -223,6 +210,7 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 560px) {
   .section { padding: 3.5rem 1rem; }
+  .section--story, .section--ceremony, .section--gallery, .section--day, .section--location, .section--accommodation { padding-block: 1.25rem; }
   .wedding-tabs__monogram { font-size: .73rem; }
   .hero__name--script { font-size: 4.2rem; }
   .hero__name--serif { font-size: 3rem; }
@@ -238,6 +226,9 @@ img { display: block; max-width: 100%; }
   .lightbox__arrow { position: absolute; z-index: 1; top: 50%; transform: translateY(-50%); background: rgba(36,39,27,.72); }
   .lightbox__arrow--previous { left: .5rem; }
   .lightbox__arrow--next { right: .5rem; }
+  .day-grid, .ceremony-art-grid, .location-grid { grid-template-columns: 1fr; }
+  .weather-card { grid-column: auto; }
+  .location-card { padding: 1.25rem; }
   .hotel-grid { grid-template-columns: 1fr; }
   .closing h2 { margin-bottom: 1.25rem; }
   .album-card { grid-template-columns: 6.5rem minmax(0, 1fr); gap: .8rem; padding: .85rem; text-align: left; }

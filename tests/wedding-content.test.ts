@@ -34,3 +34,7 @@ test("configures only the two requested photo galleries", () => {
   );
   assert.ok(weddingContent.galleries.every((gallery) => gallery.images.length > 0));
 });
+
+test("keeps an existing image for every accommodation option", () => {
+  assert.ok(weddingContent.accommodation.hotels.every((hotel) => hotel.imageSrc.startsWith("/images/hotels/")));
+});

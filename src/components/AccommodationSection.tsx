@@ -1,5 +1,6 @@
 import { weddingContent } from "@/data/wedding";
 import { Button } from "./Button";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 import { SectionTitle } from "./SectionTitle";
 
 type Hotel = (typeof weddingContent.accommodation.hotels)[number];
@@ -26,6 +27,11 @@ export function AccommodationSection() {
         <div className="hotel-grid">
           {weddingContent.accommodation.hotels.map((hotel) => (
             <article className="hotel-card" key={hotel.id}>
+              <ImagePlaceholder
+                alt={`Vista de ${hotel.name}`}
+                label={`Imagen de ${hotel.name}`}
+                src={hotel.imageSrc}
+              />
               <div className="hotel-card__body">
                 <h3>{hotel.name}</h3>
                 <p className="hotel-card__distance">Distancia a Piedra Alta: {hotel.distanceMinutes} min</p>

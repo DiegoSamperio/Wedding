@@ -4,7 +4,7 @@ import { SectionTitle } from "./SectionTitle";
 
 export function LocationSection() {
   return (
-    <section className="section" id="ubicacion" aria-labelledby="location-title">
+    <section className="section section--location" id="ubicacion" aria-labelledby="location-title">
       <div className="section__inner">
         <SectionTitle id="location-title" eyebrow={weddingContent.sections.location.eyebrow} title={weddingContent.sections.location.title} />
         <div className="location-grid">

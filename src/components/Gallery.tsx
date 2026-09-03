@@ -97,7 +97,7 @@ export function Gallery() {
   const activeImage = activeGallery?.images[activeIndex];
 
   return (
-    <section className="section section--warm" id="recuerdos" aria-labelledby="gallery-title">
+    <section className="section section--warm section--gallery" id="recuerdos" aria-labelledby="gallery-title">
       <div className="section__inner">
         <SectionTitle
           id="gallery-title"
