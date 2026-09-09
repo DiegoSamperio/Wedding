@@ -7,7 +7,7 @@ La web ya utiliza directamente el arte final extraído de la invitación: portad
 La página está visualmente completa con ilustraciones de la invitación. Solo se necesitan fotografías si Daniela y Rodrigo desean reemplazar o complementar ese arte.
 
 - Foto principal para Inicio: confirmar si sustituirá la portada ilustrada actual.
-- Fotos de galería: confirmar cuántas habrá y cómo se repartirán entre Propuesta, Pedida y Fiesta de compromiso.
+- Galerías de Propuesta y Pedida: integradas y optimizadas para web.
 - Foto para Cierre: confirmar si sustituirá la ilustración de Daniela, Rodrigo y Bagheera.
 
 Formato recomendado: JPG o WebP, mínimo 1800 px por el lado largo y sin marcas de agua.

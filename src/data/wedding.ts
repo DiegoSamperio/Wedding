@@ -1,3 +1,31 @@
+function buildGalleryImages(
+  directory: "propuesta" | "pedida",
+  count: number,
+  description: string,
+  portraitIndexes: readonly number[],
+) {
+  const portraitImages = new Set(portraitIndexes);
+
+  return Array.from({ length: count }, (_, index) => ({
+    src: `/images/gallery/${directory}/${directory}-${String(index + 1).padStart(3, "0")}.webp`,
+    alt: `${description}, fotografía ${index + 1} de ${count}`,
+    orientation: portraitImages.has(index + 1) ? "portrait" as const : "landscape" as const,
+  }));
+}
+
+const proposalImages = buildGalleryImages(
+  "propuesta",
+  62,
+  "Daniela y Rodrigo durante su propuesta de matrimonio en Florencia",
+  [2, 3, 9, 10, 11, 13, 15, 19, 22, 26, 27, 28, 30, 31, 33, 34, 36, 40, 41, 43, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 60, 61, 62],
+);
+const engagementImages = buildGalleryImages(
+  "pedida",
+  85,
+  "Daniela y Rodrigo con sus familias durante su pedida de mano",
+  [3, 4, 6, 12, 13, 14, 19, 20, 22, 28, 32, 37, 40, 41, 46, 47, 49, 53, 55, 58, 59, 61, 64, 65, 66, 67, 69, 70, 71, 74, 75, 76, 79, 80, 83],
+);
+
 export const weddingContent = {
   navigation: [
     { id: "home", label: "Inicio" },
@@ -163,29 +191,16 @@ export const weddingContent = {
     {
       id: "proposal",
       title: "Propuesta de matrimonio",
-      coverSrc: "/images/closing/propuesta-florencia.jpg",
-      coverAlt: "Rodrigo proponiéndole matrimonio a Daniela en Florencia",
-      images: [
-        {
-          src: "/images/closing/propuesta-florencia.jpg",
-          alt: "Rodrigo proponiéndole matrimonio a Daniela con Florencia al fondo",
-        },
-        {
-          src: "/images/hero/anillo-principal.jpg",
-          alt: "Daniela y Rodrigo muestran el anillo de compromiso en Florencia",
-        },
-      ],
+      coverSrc: "/images/gallery/propuesta/propuesta-008.webp",
+      coverAlt: "Rodrigo proponiéndole matrimonio a Daniela con Florencia al fondo",
+      images: proposalImages,
     },
     {
       id: "engagement",
       title: "Pedida de mano",
-      coverSrc: null,
-      coverAlt: "Fotografías de la pedida de mano pendientes de agregar",
-      images: [
-        { src: null, alt: "Primera fotografía de la pedida de mano pendiente de agregar" },
-        { src: null, alt: "Segunda fotografía de la pedida de mano pendiente de agregar" },
-        { src: null, alt: "Tercera fotografía de la pedida de mano pendiente de agregar" },
-      ],
+      coverSrc: "/images/gallery/pedida/pedida-033.webp",
+      coverAlt: "Daniela y Rodrigo celebrando su pedida de mano con un ramo de flores",
+      images: engagementImages,
     },
   ],
   ceremonyTitle: "Quienes forman parte de nuestro para siempre",

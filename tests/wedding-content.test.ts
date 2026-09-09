@@ -32,7 +32,8 @@ test("configures only the two requested photo galleries", () => {
     weddingContent.galleries.map((gallery) => gallery.title),
     ["Propuesta de matrimonio", "Pedida de mano"],
   );
-  assert.ok(weddingContent.galleries.every((gallery) => gallery.images.length > 0));
+  assert.deepEqual(weddingContent.galleries.map((gallery) => gallery.images.length), [62, 85]);
+  assert.ok(weddingContent.galleries.every((gallery) => gallery.images.every((image) => image.src.endsWith(".webp"))));
 });
 
 test("keeps an existing image for every accommodation option", () => {
