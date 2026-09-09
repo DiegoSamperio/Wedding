@@ -36,6 +36,17 @@ test("configures only the two requested photo galleries", () => {
   assert.ok(weddingContent.galleries.every((gallery) => gallery.images.every((image) => image.src.endsWith(".webp"))));
 });
 
+test("groups landscape photos before portrait photos in each gallery", () => {
+  for (const gallery of weddingContent.galleries) {
+    const firstPortrait = gallery.images.findIndex((image) => image.orientation === "portrait");
+
+    assert.ok(firstPortrait > 0);
+    assert.ok(gallery.images.slice(0, firstPortrait).every((image) => image.orientation === "landscape"));
+    assert.ok(gallery.images.slice(firstPortrait).every((image) => image.orientation === "portrait"));
+    assert.equal(new Set(gallery.images.map((image) => image.src)).size, gallery.images.length);
+  }
+});
+
 test("keeps an existing image for every accommodation option", () => {
   assert.ok(weddingContent.accommodation.hotels.every((hotel) => hotel.imageSrc.startsWith("/images/hotels/")));
 });

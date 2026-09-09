@@ -1,27 +1,27 @@
 function buildGalleryImages(
   directory: "propuesta" | "pedida",
-  count: number,
+  order: readonly number[],
   description: string,
   portraitIndexes: readonly number[],
 ) {
   const portraitImages = new Set(portraitIndexes);
 
-  return Array.from({ length: count }, (_, index) => ({
-    src: `/images/gallery/${directory}/${directory}-${String(index + 1).padStart(3, "0")}.webp`,
-    alt: `${description}, fotografía ${index + 1} de ${count}`,
-    orientation: portraitImages.has(index + 1) ? "portrait" as const : "landscape" as const,
+  return order.map((fileIndex, index) => ({
+    src: `/images/gallery/${directory}/${directory}-${String(fileIndex).padStart(3, "0")}.webp`,
+    alt: `${description}, fotografía ${index + 1} de ${order.length}`,
+    orientation: portraitImages.has(fileIndex) ? "portrait" as const : "landscape" as const,
   }));
 }
 
 const proposalImages = buildGalleryImages(
   "propuesta",
-  62,
+  [1, 4, 5, 6, 7, 8, 12, 14, 16, 17, 18, 20, 21, 23, 24, 25, 29, 32, 35, 37, 38, 39, 42, 44, 45, 58, 59, 46, 2, 3, 9, 10, 11, 13, 15, 19, 22, 26, 27, 28, 30, 31, 33, 34, 36, 40, 41, 43, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 60, 61, 62],
   "Daniela y Rodrigo durante su propuesta de matrimonio en Florencia",
   [2, 3, 9, 10, 11, 13, 15, 19, 22, 26, 27, 28, 30, 31, 33, 34, 36, 40, 41, 43, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 60, 61, 62],
 );
 const engagementImages = buildGalleryImages(
   "pedida",
-  85,
+  [5, 8, 16, 23, 26, 45, 62, 1, 2, 7, 9, 10, 11, 15, 17, 18, 21, 24, 25, 27, 29, 30, 31, 33, 34, 35, 36, 38, 39, 42, 43, 44, 48, 50, 51, 52, 54, 56, 57, 60, 63, 68, 72, 73, 77, 78, 81, 82, 84, 85, 6, 12, 13, 19, 22, 28, 32, 37, 40, 41, 46, 47, 49, 55, 58, 59, 61, 64, 66, 67, 69, 70, 75, 76, 80, 83, 3, 4, 14, 20, 53, 65, 71, 74, 79],
   "Daniela y Rodrigo con sus familias durante su pedida de mano",
   [3, 4, 6, 12, 13, 14, 19, 20, 22, 28, 32, 37, 40, 41, 46, 47, 49, 53, 55, 58, 59, 61, 64, 65, 66, 67, 69, 70, 71, 74, 75, 76, 79, 80, 83],
 );

@@ -208,20 +208,9 @@ export function Gallery() {
               </button>
             </div>
             <div className="lightbox__footer">
-              <div className="lightbox__summary">
-                <button
-                  className="lightbox__first"
-                  disabled={activeIndex === 0}
-                  onClick={() => setActiveIndex(0)}
-                  type="button"
-                >
-                  Volver a la primera
-                </button>
-                <p aria-live="polite" className="lightbox__position" id="gallery-position">
-                  {activeIndex + 1} de {activeGallery.images.length}
-                </p>
-                <span className="lightbox__hint">Desliza la foto o usa las flechas</span>
-              </div>
+              <p aria-live="polite" className="lightbox__position" id="gallery-position">
+                {activeIndex + 1} de {activeGallery.images.length}
+              </p>
               <nav aria-label={`Ir a una fotografía de ${activeGallery.title}`} className="lightbox__dots">
                 {activeGallery.images.map((imageConfig, index) => (
                   <button
