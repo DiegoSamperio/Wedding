@@ -348,7 +348,7 @@ export const weddingContent = {
           "https://waze.com/ul?q=Holiday%20Inn%20Express%20%26%20Suites%20Cuernavaca%2C%20Av.%20Morelos%20Sur%20133%2C%20Las%20Palmas%2C%2062050%20Cuernavaca%2C%20Morelos&navigate=yes",
       },
     ],
-    airbnb: "https://www.airbnb.com/l/tw65kLsW",
+    airbnb: "https://www.airbnb.com/l/XrKRR11Y",
     transportation: "PENDIENTE",
   },
   rsvp: {

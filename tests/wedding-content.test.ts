@@ -91,5 +91,5 @@ test("publishes verified addresses and map links for the five updated options", 
 
   assert.equal(updatedHotels.length, updatedIds.length);
   assert.ok(updatedHotels.every((hotel) => hotel.address && hotel.googleMapsUrl && hotel.wazeUrl));
-  assert.equal(weddingContent.accommodation.airbnb, "https://www.airbnb.com/l/tw65kLsW");
+  assert.equal(weddingContent.accommodation.airbnb, "https://www.airbnb.com/l/XrKRR11Y");
 });
