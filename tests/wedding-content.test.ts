@@ -61,13 +61,20 @@ test("keeps the requested accommodation options and removes retired hotels", () 
       "fiesta-americana-hacienda",
       "coral-clubes",
       "holiday-inn-express-cuernavaca",
-      "fiesta-inn-cuernavaca",
-      "mision-grand-cuernavaca",
     ],
   );
   assert.ok(
     weddingContent.accommodation.hotels.every(
-      (hotel) => !["one-cuernavaca", "orchidelirium", "las-mananitas", "avicena", "hosteria-las-quintas"].includes(hotel.id),
+      (hotel) =>
+        ![
+          "one-cuernavaca",
+          "orchidelirium",
+          "las-mananitas",
+          "avicena",
+          "hosteria-las-quintas",
+          "fiesta-inn-cuernavaca",
+          "mision-grand-cuernavaca",
+        ].includes(hotel.id),
     ),
   );
 });
