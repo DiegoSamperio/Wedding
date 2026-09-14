@@ -22,6 +22,6 @@ La invitación utiliza Symphony Pro. La web ya cuenta con una alternativa visual
 
 - Destino real para recibir las confirmaciones RSVP.
 - Confirmar si el límite de invitados se manejará de forma individual por invitación.
-- Direcciones, tarifas, calificaciones y códigos de descuento faltantes de hoteles.
+- Tarifas, calificaciones y códigos de descuento de hoteles, si se desean publicar.
 - Confirmar transporte, carácter exterior del evento y plan en caso de lluvia.
 - Dominio y servicio de publicación.

@@ -164,6 +164,11 @@ img { display: block; max-width: 100%; }
 .hotel-card address { margin-bottom: 1.1rem; color: var(--taupe-500); font-size: .82rem; }
 .hotel-card__actions { margin-top: auto; }
 .hotel-card__actions .button { flex: 1 1 7rem; min-height: 40px; padding: .5rem; font-size: .58rem; }
+.airbnb-card { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 1.5rem; padding: clamp(1.15rem, 2.5vw, 1.6rem); border: 1px solid rgba(116,137,77,.22); border-radius: 1.1rem; background: linear-gradient(135deg, rgba(225,232,212,.72), rgba(255,253,245,.92)); }
+.airbnb-card__copy { min-width: 0; }
+.airbnb-card h3 { margin: .25rem 0 .35rem; color: var(--olive-800); font-size: clamp(1.25rem, 1.8vw, 1.55rem); }
+.airbnb-card p:last-child { margin: 0; color: var(--taupe-500); font-size: .84rem; }
+.airbnb-card .button { flex: 0 0 auto; }
 
 .section--gifts { min-height: calc(100svh - 64px); background: radial-gradient(circle at 88% 4%, rgba(255,248,218,.72), transparent 40%), var(--paper-100); }
 .gifts-layout { width: min(100%, 68rem); margin-inline: auto; }
@@ -251,6 +256,8 @@ img { display: block; max-width: 100%; }
   .weather-card { grid-column: auto; }
   .location-card { padding: 1.25rem; }
   .hotel-grid { grid-template-columns: 1fr; }
+  .airbnb-card { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .airbnb-card .button { width: 100%; }
   .closing h2 { margin-bottom: 1.25rem; }
   .album-card { grid-template-columns: 6.5rem minmax(0, 1fr); gap: .8rem; padding: .85rem; text-align: left; }
   .album-card__qr { width: 6.5rem; min-height: 6.5rem; margin-inline: 0; }

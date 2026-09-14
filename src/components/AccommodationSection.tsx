@@ -5,13 +5,17 @@ import { SectionTitle } from "./SectionTitle";
 
 type Hotel = (typeof weddingContent.accommodation.hotels)[number];
 
+function hotelLocationQuery(hotel: Hotel) {
+  return encodeURIComponent(`${hotel.name}${hotel.address ? `, ${hotel.address}` : " Morelos"}`);
+}
+
 function mapsSearchUrl(hotel: Hotel) {
-  const query = encodeURIComponent(`${hotel.name} Morelos`);
+  const query = hotelLocationQuery(hotel);
   return hotel.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
 function wazeSearchUrl(hotel: Hotel) {
-  const query = encodeURIComponent(`${hotel.name} Morelos`);
+  const query = hotelLocationQuery(hotel);
   return hotel.wazeUrl || `https://waze.com/ul?q=${query}&navigate=yes`;
 }
 
@@ -44,6 +48,18 @@ export function AccommodationSection() {
             </article>
           ))}
         </div>
+        {weddingContent.accommodation.airbnb ? (
+          <div className="airbnb-card">
+            <div className="airbnb-card__copy">
+              <p className="eyebrow">Más opciones</p>
+              <h3>Opciones de Airbnb</h3>
+              <p>Explora alojamientos alternativos cerca del lugar de la celebración.</p>
+            </div>
+            <Button href={weddingContent.accommodation.airbnb} variant="secondary">
+              Ver opciones en Airbnb
+            </Button>
+          </div>
+        ) : null}
       </div>
     </section>
   );

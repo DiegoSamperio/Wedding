@@ -50,3 +50,39 @@ test("groups landscape photos before portrait photos in each gallery", () => {
 test("keeps an existing image for every accommodation option", () => {
   assert.ok(weddingContent.accommodation.hotels.every((hotel) => hotel.imageSrc.startsWith("/images/hotels/")));
 });
+
+test("keeps the requested accommodation options and removes retired hotels", () => {
+  assert.deepEqual(
+    weddingContent.accommodation.hotels.map((hotel) => hotel.id),
+    [
+      "radisson-cuernavaca",
+      "finca-mi-refugio",
+      "cerritos-xochitepec",
+      "fiesta-americana-hacienda",
+      "coral-clubes",
+      "holiday-inn-express-cuernavaca",
+      "fiesta-inn-cuernavaca",
+      "mision-grand-cuernavaca",
+    ],
+  );
+  assert.ok(
+    weddingContent.accommodation.hotels.every(
+      (hotel) => !["one-cuernavaca", "orchidelirium", "las-mananitas", "avicena", "hosteria-las-quintas"].includes(hotel.id),
+    ),
+  );
+});
+
+test("publishes verified addresses and map links for the five updated options", () => {
+  const updatedIds = [
+    "finca-mi-refugio",
+    "cerritos-xochitepec",
+    "fiesta-americana-hacienda",
+    "coral-clubes",
+    "holiday-inn-express-cuernavaca",
+  ];
+  const updatedHotels = weddingContent.accommodation.hotels.filter((hotel) => updatedIds.includes(hotel.id));
+
+  assert.equal(updatedHotels.length, updatedIds.length);
+  assert.ok(updatedHotels.every((hotel) => hotel.address && hotel.googleMapsUrl && hotel.wazeUrl));
+  assert.equal(weddingContent.accommodation.airbnb, "https://www.airbnb.com/l/tw65kLsW");
+});
