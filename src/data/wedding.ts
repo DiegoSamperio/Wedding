@@ -381,5 +381,13 @@ export const weddingContent = {
   closing: {
     quote: "Gracias por acompañarnos en uno de los días más importantes de nuestras vidas.",
     imageSrc: "/images/closing/propuesta-florencia.jpg",
+    credits: {
+      artLabel: "Arte por",
+      artName: "@cs.diseno",
+      artUrl: "https://www.instagram.com/cs.diseno/",
+      webLabel: "Desarrollo web por",
+      webName: "Diego Samperio",
+      webUrl: "https://portfolio-flax-eight-ipofgobk1e.vercel.app/#work",
+    },
   },
 } as const;

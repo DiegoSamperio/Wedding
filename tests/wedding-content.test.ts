@@ -18,6 +18,17 @@ test("uses the final invitation wording for the shared album", () => {
   assert.equal(weddingContent.photoAlbum.title, "Queremos vivir este día también desde tus ojos");
 });
 
+test("configures the closing credits with the requested links", () => {
+  assert.deepEqual(weddingContent.closing.credits, {
+    artLabel: "Arte por",
+    artName: "@cs.diseno",
+    artUrl: "https://www.instagram.com/cs.diseno/",
+    webLabel: "Desarrollo web por",
+    webName: "Diego Samperio",
+    webUrl: "https://portfolio-flax-eight-ipofgobk1e.vercel.app/#work",
+  });
+});
+
 test("separates location and accommodation in the primary navigation", () => {
   assert.deepEqual(
     weddingContent.navigation

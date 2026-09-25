@@ -20,6 +20,20 @@ export function ClosingSection() {
             <Button href={weddingContent.photoAlbum.url} variant="secondary">{weddingContent.sections.closing.albumButtonLabel}</Button>
           </div>
         </div>
+        <div className="closing__credits" aria-label="Créditos">
+          <p>
+            {weddingContent.closing.credits.artLabel}{" "}
+            <a href={weddingContent.closing.credits.artUrl} rel="noreferrer" target="_blank">
+              {weddingContent.closing.credits.artName}
+            </a>
+          </p>
+          <p>
+            {weddingContent.closing.credits.webLabel}{" "}
+            <a href={weddingContent.closing.credits.webUrl} rel="noreferrer" target="_blank">
+              {weddingContent.closing.credits.webName}
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -196,6 +196,10 @@ img { display: block; max-width: 100%; }
 .album-card__qr { min-height: 7rem; }
 .album-card h3 { margin-bottom: .4rem; color: var(--olive-800); font-size: 1.2rem; }
 .album-card p { color: var(--taupe-500); font-size: .83rem; }
+.closing__credits { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem 1.25rem; width: 100%; margin-top: 1.35rem; padding-top: .9rem; border-top: 1px solid rgba(116,137,77,.18); color: var(--taupe-500); font-size: .68rem; letter-spacing: .04em; }
+.closing__credits p { margin: 0; }
+.closing__credits a { color: var(--olive-800); text-decoration: none; }
+.closing__credits a:hover, .closing__credits a:focus-visible { text-decoration: underline; text-underline-offset: .2em; }
 
 @media (max-width: 1050px) {
   .hero { grid-template-columns: .95fr 1.05fr; }
