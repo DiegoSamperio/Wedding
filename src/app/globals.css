@@ -198,8 +198,8 @@ img { display: block; max-width: 100%; }
 .album-card p { color: var(--taupe-500); font-size: .83rem; }
 .closing__credits { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem 1.25rem; width: 100%; margin-top: 1.35rem; padding-top: .9rem; border-top: 1px solid rgba(116,137,77,.18); color: var(--taupe-500); font-size: .68rem; letter-spacing: .04em; }
 .closing__credits p { margin: 0; }
-.closing__credits a { color: var(--olive-800); text-decoration: none; }
-.closing__credits a:hover, .closing__credits a:focus-visible { text-decoration: underline; text-underline-offset: .2em; }
+.closing__credits a { color: var(--olive-800); font-weight: 500; text-decoration: underline; text-decoration-color: rgba(116,137,77,.55); text-decoration-thickness: 1px; text-underline-offset: .2em; transition: color .2s ease, text-decoration-color .2s ease, text-decoration-thickness .2s ease; }
+.closing__credits a:hover, .closing__credits a:focus-visible { color: var(--gold-600); text-decoration-color: currentColor; text-decoration-thickness: 2px; }
 
 @media (max-width: 1050px) {
   .hero { grid-template-columns: .95fr 1.05fr; }
